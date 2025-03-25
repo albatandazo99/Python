@@ -1,0 +1,57 @@
+#Project background:Sal runs the biggest shipping company in the tri-county area, Sal’s Shippers. Sal wants to make sure that every single one of his customers has the best, and most affordable experience shipping their packages.
+#In this project, I built a program that will take the weight of a package and determine the cheapest way to ship that package using Sal’s Shippers.
+
+#Ground price rate, price based on the weight of package
+ground_2_lbs_or_less = 1.50
+ground_over_2_less_or_equal_to_6 = 3.0
+ground_over_6_less_or_equal_to_10 = 4.0
+ground_over_10_lbs = 4.75
+#flat rate for ground shipping
+ground_shipping_flat_rate = 20.0
+
+#Ground shipping
+if weight <= 2:    # 0 to 2 lbs
+    ground_cost = ground_2_lbs_or_less * weight + ground_shipping_flat_rate
+    print(f"Ground shipping is ${ground_cost}")
+elif weight <= 6:  # Over 2 lbs to 6 lbs
+  ground_cost = ground_over_2_less_or_equal_to_6 * weight + ground_shipping_flat_rate
+  print(f"Ground shipping is ${ground_cost}")
+elif weight <= 10: # Over 6 lbs to 10 lbs
+    ground_cost = ground_over_6_less_or_equal_to_10 * weight + ground_shipping_flat_rate
+    print(f"Ground shipping is ${ground_cost}")
+else:             # Over 10 lbs
+    ground_cost = ground_over_10_lbs * weight + ground_shipping_flat_rate
+    print(f"Ground shipping is ${ground_cost}")
+
+#Ground Shipping Premium
+ground_shipping_premium = 125.0 #flat rate only --doesn't charge by weight
+print(f"Ground Shipping Premium is {ground_shipping_premium}")
+
+#Drone rates based on weight
+drone_2_lbs_or_less = 4.50
+drone_over_2_less_or_equal_to_6 = 9.0
+drone_over_6_less_or_equal_to_10 = 12.0
+drone_over_10_lbs = 14.25
+
+#Drone Shipping
+if weight <= 2:    # 0 to 2 lbs
+    drone_cost = drone_2_lbs_or_less * weight
+    print(f"Drone shipping is ${drone_cost}")
+elif weight <= 6:  # Over 2 lbs to 6 lbs
+    drone_cost = drone_over_2_less_or_equal_to_6 * weight
+    print(f"Drone shipping is ${drone_cost}")
+elif weight <= 10: # Over 6 lbs to 10 lbs
+    drone_cost = drone_over_6_less_or_equal_to_10 * weight
+    print(f"Drone shipping is ${drone_cost}")
+else:             # Over 10 lbs
+    drone_cost = drone_over_10_lbs * weight 
+    print(f"Drone shipping is ${drone_cost}")
+
+#Display the name of the cheapeast shipping and its cost
+cheapest_method = min(ground_cost, ground_shipping_premium, drone_cost)
+if cheapest_method == ground_cost:
+    print(f"The cheapest method is Ground Shipping at ${ground_cost}")
+elif cheapest_method == ground_shipping_premium:
+    print(f"The cheapest method is Ground Shipping Premium at ${ground_shipping_premium}")
+else:
+    print(f"The cheapest method is Drone Shipping at ${drone_cost}")
